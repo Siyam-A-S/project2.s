@@ -41,3 +41,10 @@ Print:
 	syscall					# execute print
 	
 	j Exit					# exit program
+
+Errormsg:					# print invalid message when input is invalid
+	li $v0, 4				# print a string
+	la $a0, invalid				# load the invalid label
+	syscall					# execute print
+
+	j Exit					# exit program
