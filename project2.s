@@ -70,4 +70,7 @@ Translate:
 	bgt $t7, 4, InvalMsg			# if length > 4, print invalid prompt
 	beq $t1, 0, Jump			# print the final value if end reached
 	beq $t1, 10, Jump			# print the final value if line break found
+	beq $t1, 32, Trailing		# check for trailing spaces & tabs if a space found
+	beq $t1, 9, Trailing		# check for trailing spaces & tabs if a tab found
+	
 	
