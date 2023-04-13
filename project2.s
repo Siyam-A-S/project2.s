@@ -64,4 +64,10 @@ Translate:
 	
 	Skip1:	addi $a0, $a0, 1		# go to the next byte address
 		j Leading			# loop to check for leading space/tab
+
+	LoopMain:				# loop to process characters in input
+	lb $t1, ($a0)				# loading the subsequent bit to $t1
+	bgt $t7, 4, InvalMsg			# if length > 4, print invalid prompt
+	beq $t1, 0, Jump			# print the final value if end reached
+	beq $t1, 10, Jump			# print the final value if line break found
 	
