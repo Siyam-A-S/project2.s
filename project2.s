@@ -31,3 +31,7 @@ Print:
 	li $v0, 4				# to print a string
 	la $a0, openP				# load the open parenthesis
 	syscall					# execute print
+
+	li $v0, 1				# to print an integer
+	addi $a0, $t9, 0			# move the length of input to $a0
+	syscall					# execute print
