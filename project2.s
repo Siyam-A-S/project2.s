@@ -83,6 +83,10 @@ Translate:
 		li $t3, -55				# assign character's value to $t3
 		j Calculations			# jump to calculate and update $t5
 
-	
+	Lower:	bgt $t1, 118, InvalMsg		# if character > 'v' then jump to InvalMsg
+		blt $t1, 97, InvalMsg		# if character < 'a' jump to InvalMsg
+		li $t3, -87			# assign character's value to $t3
+
+		
 
 	
