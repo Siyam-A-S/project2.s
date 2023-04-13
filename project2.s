@@ -100,3 +100,12 @@ Translate:
 	lb $t1, ($a0)				# loading the subsequent bit
 	beq $t1, 0, Jump			# print the final value if end reached
 	beq $t1, 10, Jump			# print the final value if line break found
+	bne $t1, 32, Tab2			# check for trailing space
+	j Skip2					# continue loop
+	
+	Tab2:	bne $t1, 9, InvalMsg		# check for trailing tab 
+	
+	Skip2:	addi $a0, $a0, 1		# go to the next byte address
+		j Trailing			# loop again in Trailing
+
+	
