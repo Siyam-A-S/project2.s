@@ -87,6 +87,11 @@ Translate:
 		blt $t1, 97, InvalMsg		# if character < 'a' jump to InvalMsg
 		li $t3, -87			# assign character's value to $t3
 
-		
+	Calculations:
+		add $t2, $t1, $t3		# turn the character to its decimal value
+		add $t4, $t4, $t2		# add that value to $t4 in every iteration
+		mul $t4, $t4, 32		# multiply $t4 by 32 in every iteration	
 
-	
+	Next:	addi $a0, $a0, 1		# go to the next byte address
+		addi $t7, $t7, 1		# increment by 1 the length counter of input
+		
