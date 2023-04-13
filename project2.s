@@ -73,4 +73,7 @@ Translate:
 	beq $t1, 32, Trailing		# check for trailing spaces & tabs if a space found
 	beq $t1, 9, Trailing		# check for trailing spaces & tabs if a tab found
 	
-	
+	Numbers:bgt $t1, 57, Upper		# if character > 9 then jump to Upper
+		blt $t1, 48, InvalMsg		# if character < 0 jump to InvalMsg
+		li $t3, -48				# assign character's value to $t3
+		j Calculations			# jump to calculate and update $t5
