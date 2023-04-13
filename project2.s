@@ -27,3 +27,7 @@ Print:
 	li $v0, 1				# to print an integer
 	addi $a0, $t5, 0			# move output from $t5 to $a0
 	syscall					# execute print
+	
+	li $v0, 4				# to print a string
+	la $a0, openP				# load the open parenthesis
+	syscall					# execute print
