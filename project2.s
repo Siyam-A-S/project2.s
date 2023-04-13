@@ -55,3 +55,8 @@ Exit:	li $v0, 10				# exit the program
 Translate:
 	Leading:				# to skip leading spaces and tabs
 	lb $t1, ($a0)				# loading the subsequent bit to $t1
+	beq $t1, 0, Jump			# print the final value if end reached
+	beq $t1, 10, Jump			# print the final value if line break found
+	bne $t1, 32, Tab1			# check for leading space 
+	j Skip1						# continue loop
+	
