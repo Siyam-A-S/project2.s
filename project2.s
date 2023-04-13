@@ -18,3 +18,6 @@ main:
 	li $a1, 1001 				# maximum length (including null terminator) 
 	syscall 				# execute
 	
+Output:	jal Translate				# to convert string input to decimal output
+	beq $v1, -1, ErrorMsg		# print invalid message when input is invalid
+	j Print					# print the value returned by subprogram
