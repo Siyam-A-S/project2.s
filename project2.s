@@ -108,4 +108,11 @@ Translate:
 	Skip2:	addi $a0, $a0, 1		# go to the next byte address
 		j Trailing			# loop again in Trailing
 
+	Jump:	addi $v1, $t4, 0		# move the value to $v1 before returning
+		div $v1, $v1, 32		# divide by 32 to accommodate for the last multiplication
+		j JR				# jump register
+		
+	InvalMsg:
+		li $v1, -1			# return value = -1 if input is invalid
+		j JR				# jump register
 	
