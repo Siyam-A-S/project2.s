@@ -19,5 +19,11 @@ main:
 	syscall 				# execute
 	
 Output:	jal Translate				# to convert string input to decimal output
-	beq $v1, -1, ErrorMsg		# print invalid message when input is invalid
+	beq $v1, -1, ErrorMsg			# print invalid message when input is invalid
 	j Print					# print the value returned by subprogram
+
+Print:	
+	addi $t5, $v1, 0			# move the output to $t5
+	li $v0, 1				# to print an integer
+	addi $a0, $t5, 0			# move output from $t5 to $a0
+	syscall					# execute print
