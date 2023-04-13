@@ -59,4 +59,9 @@ Translate:
 	beq $t1, 10, Jump			# print the final value if line break found
 	bne $t1, 32, Tab1			# check for leading space 
 	j Skip1						# continue loop
+
+	Tab1:	bne $t1, 9, LoopMain		# check for leading tab
+	
+	Skip1:	addi $a0, $a0, 1		# go to the next byte address
+		j Leading			# loop to check for leading space/tab
 	
