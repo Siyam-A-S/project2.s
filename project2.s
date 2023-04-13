@@ -2,7 +2,7 @@
 	userInput: .space 1001			# to store user input (1000 characters maximum)
 	invalid: .asciiz "Invalid input"	# label to store invalid input message
 	openP: .asciiz "(" 			# label for opening parenthesis 
-	closingP: asciiz ")"			# label for closing parenthesis
+	closingP: .asciiz ")"			# label for closing parenthesis
 .text
 
 main:	
@@ -33,7 +33,7 @@ Print:
 	syscall					# execute print
 
 	li $v0, 1				# to print an integer
-	addi $a0, $t9, 0			# move the length of input to $a0
+	addi $a0, $t7, 0			# move the length of input to $a0
 	syscall					# execute print
 	
 	li $v0, 4				# to print a string
@@ -42,7 +42,7 @@ Print:
 	
 	j Exit					# exit program
 
-Errormsg:					# print invalid message when input is invalid
+ErrorMsg:					# print invalid message when input is invalid
 	li $v0, 4				# print a string
 	la $a0, invalid				# load the invalid label
 	syscall					# execute print
@@ -115,4 +115,12 @@ Translate:
 	InvalMsg:
 		li $v1, -1			# return value = -1 if input is invalid
 		j JR				# jump register
+
+	
+	JR:	jr $ra				# jump to return adress
+
+
+
+
+
 	
