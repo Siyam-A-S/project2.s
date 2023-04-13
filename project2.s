@@ -94,4 +94,9 @@ Translate:
 
 	Next:	addi $a0, $a0, 1		# go to the next byte address
 		addi $t7, $t7, 1		# increment by 1 the length counter of input
-		
+		j LoopMain			# jump to LoopMain
+	
+	Trailing:
+	lb $t1, ($a0)				# loading the subsequent bit
+	beq $t1, 0, Jump			# print the final value if end reached
+	beq $t1, 10, Jump			# print the final value if line break found
