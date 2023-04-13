@@ -48,3 +48,10 @@ Errormsg:					# print invalid message when input is invalid
 	syscall					# execute print
 
 	j Exit					# exit program
+
+Exit:	li $v0, 10				# exit the program
+	syscall					# system call to exit
+	
+Translate:
+	Leading:				# to skip leading spaces and tabs
+	lb $t1, ($a0)				# loading the subsequent bit to $t1
