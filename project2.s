@@ -1,6 +1,8 @@
 .data
-	userInput: .space 1001		#to store user input (1000 characters maximum)
-	invalid: .asciiz "Invalid input"	#label to store invalid input message
+	userInput: .space 1001			# to store user input (1000 characters maximum)
+	invalid: .asciiz "Invalid input"	# label to store invalid input message
+	openP: .asciiz "(" 			# label for opening parenthesis 
+	closingP: asciiz ")"			# label for closing parenthesis
 .text
 
 main:	
